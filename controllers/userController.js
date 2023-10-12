@@ -18,9 +18,12 @@ const authUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      msg: "success",
     });
   } else {
-    res.status(401);
+    res.status(401).json({
+      msg: "",
+    });
     throw new Error("Invalid email or password");
   }
 });
